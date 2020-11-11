@@ -50,12 +50,32 @@ h3 {
   background-color: #d9d9d9;
   width: 18vh;
   height: 1px;
-  margin: 3vh auto 3vh auto;
+  margin: 3vh 0 3vh 0;
 }
 
 .separator {
   background-color: #d9d9d9;
   width: 40%;
   height: 1px;
-  margin: 3vh auto 3vh auto;
+  margin: 2vh auto 2vh auto;
+}
+
+button {
+  width: 23vh;
+  height: 6vh;
+  background-color: transparent;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  border: 2px solid;
+  cursor: pointer;
+}
+
+.white {
+  color: white;
+  border-color: white;
+}
+
+.blue {
+  color: #001489;
+  border-color: #001489;
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-export default function Counter({ nextMatch }) {
+export default function Counter({ nextMatch, home, away }) {
   const [now, setNow] = useState(new Date().getTime());
   const [distance, setDistance] = useState(nextMatch - now);
 
@@ -33,7 +33,16 @@ export default function Counter({ nextMatch }) {
 
   return (
     <div className="counter-block">
-      <p>Till the next game</p>
+      {home === "Chelsea FC" && (
+        <p>
+          Till the next game with <strong>{away}</strong>
+        </p>
+      )}
+      {away === "Chelsea FC" && (
+        <p>
+          Till the next game with <strong>{home}</strong>
+        </p>
+      )}
       <div className="separator"></div>
       <div className="timer">
         <h1>{time.days} d</h1>
@@ -44,6 +53,7 @@ export default function Counter({ nextMatch }) {
         <span></span>
         <h1 className="seconds">{time.seconds} s</h1>
       </div>
+      <button className="blue">See Fixture</button>
     </div>
   );
 }

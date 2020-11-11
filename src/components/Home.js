@@ -5,9 +5,10 @@ import { connect } from "react-redux";
 import Menu from "./layout/Menu";
 import Counter from "./home/Counter";
 import MatchBlock from "./home/MatchBlock";
+import Table from "./home/Table";
 
 import plLogo from "../static/img/plLogo.png";
-import Important from "./home/Important";
+import Stats from "./home/Stats";
 
 export const Home = () => {
   const [matches, setMatches] = useState({
@@ -89,12 +90,20 @@ export const Home = () => {
     <main className="home">
       <header className="main-header">
         <Menu />
-        <section className="counter">
-          <Counter nextMatch={new Date(matches.next.date)} />
-        </section>
+        <article className="main-info">
+          <h1>Chelsea FC Fan App</h1>
+          <p>
+            One of Chelsea's most iconic players made history with the Blues
+            twice in 1997 as Ruud Gullit led the Blues to their first trophy win
+            in 26 years and in doing so became the first black manager to win a
+            major British football trophy. This is Gullit's phenomenal story...
+          </p>
+          <button className="white">Official Website</button>
+          <button className="white">PL Website</button>
+        </article>
       </header>
-      <article className="main-info">
-        <h2>Chelsea FC Fan App</h2>
+      <article className="about-info">
+        <h2>Add your ratings after every match</h2>
         <p>
           One of Chelsea's most iconic players made history with the Blues twice
           in 1997 as Ruud Gullit led the Blues to their first trophy win in 26
@@ -128,23 +137,16 @@ export const Home = () => {
         />
       </section>
 
-      <section className="important-numbers">
-        <h2>Players By Numbers</h2>
-        <div className="separator-sm"></div>
-        <ul>
-          <li>
-            <Important />
-            <Important />
-          </li>
-          <li>
-            <Important />
-            <Important />
-          </li>
-          <li>
-            <Important />
-            <Important />
-          </li>
-        </ul>
+      <section className="stats">
+        <Table />
+        <Stats />
+      </section>
+      <section className="counter">
+        <Counter
+          home={matches.next.home}
+          away={matches.next.guest}
+          nextMatch={new Date(matches.next.date)}
+        />
       </section>
     </main>
   );
