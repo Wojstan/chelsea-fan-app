@@ -1,7 +1,315 @@
+.home .main-header {
+  width: 100%;
+  height: 95vh;
+  background: url("./img/stamfordView.png") center center;
+  background-size: cover;
+  padding: 2vh;
+}
+
+.home .counter-block {
+  padding: 6vh 0 8vh 0;
+  width: 60%;
+  background-color: white;
+  -webkit-box-shadow: 0 2px 4px 0 rgba(185, 185, 185, 0.2), 0 3px 10px 0 rgba(206, 206, 206, 0.19);
+          box-shadow: 0 2px 4px 0 rgba(185, 185, 185, 0.2), 0 3px 10px 0 rgba(206, 206, 206, 0.19);
+  margin: 14vh auto 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.home .counter-block p {
+  font-family: "Poppins", sans-serif;
+  color: #242424;
+  font-weight: 300;
+  font-size: 24px;
+  width: 100%;
+  text-align: center;
+}
+
+.home .counter-block .timer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.home .counter-block .timer span {
+  width: 3vh;
+}
+
+.home .counter-block .timer h1 {
+  font-size: 68px;
+  font-weight: 500;
+  color: #001489;
+}
+
+.home .counter-block .timer .seconds {
+  min-width: 15vh;
+}
+
+.home .main-info {
+  margin-top: 6vh;
+}
+
+.home .main-info h2 {
+  text-align: center;
+  color: #001489;
+  font-size: 48px;
+  margin-bottom: 3vh;
+}
+
+.home .main-info p {
+  font-weight: 300;
+  font-size: 18px;
+  text-align: center;
+  margin: 0 auto 0 auto;
+  width: 50%;
+  margin-bottom: 8vh;
+}
+
+.home .matches {
+  background-color: #efefef;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 5vh 0 2vh 0;
+}
+
+.home .matches .match-block {
+  margin: 0 1.5vh 3vh 1.5vh;
+  background-color: white;
+  -webkit-box-shadow: 0 2px 4px 0 rgba(185, 185, 185, 0.2), 0 3px 10px 0 rgba(206, 206, 206, 0.19);
+          box-shadow: 0 2px 4px 0 rgba(185, 185, 185, 0.2), 0 3px 10px 0 rgba(206, 206, 206, 0.19);
+  width: 68vh;
+}
+
+.home .matches .match-block header {
+  padding: 2vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.home .matches .match-block header h2 {
+  font-weight: normal;
+  color: #001489;
+  font-size: 36px;
+}
+
+.home .matches .match-block header h3 {
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.home .matches .match-block header h3 strong {
+  font-weight: 500;
+  color: #001489;
+}
+
+.home .matches .match-block header .match-sm-data {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.home .matches .match-block header .match-sm-data p {
+  font-weight: 300;
+  color: #a3a3a3;
+  margin-right: 1vh;
+}
+
+.home .matches .match-block header .match-sm-data p strong {
+  font-weight: normal;
+  color: #001489;
+}
+
+.home .matches .match-block main {
+  height: 25vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.home .matches .match-block main h5 {
+  font-family: "Arvo", sans-serif;
+  font-weight: 400;
+  margin: 0 5vh 0 5vh;
+  color: #242424;
+  font-size: 32px;
+}
+
+.home .matches .match-block main .logoImg {
+  width: 10vh;
+  height: 10vh;
+}
+
+.home .matches .match-block main .logoImg img {
+  width: 100%;
+  height: 100%;
+}
+
+.home .matches .match-block footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.home .important-numbers {
+  background: url("./img/playersView.png") center center;
+  background-size: cover;
+  height: 92vh;
+  padding-top: 6vh;
+}
+
+.home .important-numbers h2 {
+  color: #efefef;
+  font-weight: 600;
+  font-size: 34px;
+  text-align: center;
+}
+
+.home .important-numbers ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.home .important-numbers .important-block {
+  background-color: white;
+  width: 30vh;
+}
+
+.home .main-footer {
+  background-color: #efefef;
+}
+
+@media screen and (max-width: 1140px) {
+  .home .counter-block {
+    width: 90%;
+  }
+  .home .main-info p {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .home .matches {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .home .matches .match-block {
+    width: 90%;
+  }
+  .home .matches .match-sm-data {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+p {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  color: #898989;
+}
+
+h1,
+h2,
+h3 {
+  color: #242424;
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+}
+
+.main-menu {
+  margin-bottom: 3vh;
+}
+
+.main-menu ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  list-style: none;
+}
+
+.main-menu ul li {
+  width: 20vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.main-menu ul .nav-link {
+  text-decoration: none;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 28px;
+}
+
+.separator-sm {
+  background-color: #d9d9d9;
+  width: 18vh;
+  height: 1px;
+  margin: 3vh auto 3vh auto;
+}
+
+.separator {
+  background-color: #d9d9d9;
+  width: 40%;
+  height: 1px;
+  margin: 3vh auto 3vh auto;
 }
 /*# sourceMappingURL=main.css.map */

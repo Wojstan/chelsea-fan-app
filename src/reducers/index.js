@@ -1,4 +1,4 @@
 import { combineReducers } from "redux"
-import ballers from "./ballers"
+import matches from "./matches";
 
-export default combineReducers({ ballers });
+export default combineReducers({ matches });

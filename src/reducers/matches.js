@@ -1,14 +1,14 @@
-import { GET_MATCH } from "../actions/types"
+import { GET_MATCHES } from "../actions/types"
 
 const initialState = {
-  food: {
-    meals: [],
-  },
+  matches: {
+
+  }
 };
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case GET_MATCH:
+    case GET_MATCHES:
       return {
         ...state,
         food: action.payload,

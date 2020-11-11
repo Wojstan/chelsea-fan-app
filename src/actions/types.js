@@ -1,1 +1,1 @@
-export const GET_MATCH = "GET_MATCH";
+export const GET_MATCHES = "GET_MATCHES";
