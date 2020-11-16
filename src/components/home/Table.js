@@ -33,7 +33,7 @@ export default function Table() {
 
         <tbody>
           {data.map((row) => (
-            <tr>
+            <tr key={row.position}>
               <td>
                 {row.team.name === "Chelsea FC" && <p>{row.position}</p>}
                 {row.team.name !== "Chelsea FC" && row.position}

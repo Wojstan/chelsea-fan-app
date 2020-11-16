@@ -59,12 +59,10 @@ export const Home = () => {
               guest: finished[finished.length - 1].awayTeam.name,
               homeScore: finished[finished.length - 1].score.fullTime.homeTeam,
               awayScore: finished[finished.length - 1].score.fullTime.awayTeam,
-              logoHome: `https://crests.football-data.org/${
-                finished[finished.length - 1].homeTeam.id
-              }.svg`,
-              logoAway: `https://crests.football-data.org/${
-                finished[finished.length - 1].awayTeam.id
-              }.svg`,
+              logoHome: `https://crests.football-data.org/${finished[finished.length - 1].homeTeam.id
+                }.svg`,
+              logoAway: `https://crests.football-data.org/${finished[finished.length - 1].awayTeam.id
+                }.svg`,
               competition: finished[finished.length - 1].competition.name,
               date: finished[finished.length - 1].utcDate,
             },
@@ -89,7 +87,7 @@ export const Home = () => {
   return (
     <main className="home">
       <header className="main-header">
-        <Menu />
+        <Menu color="white" />
         <article className="main-info">
           <h1>Chelsea FC Fan App</h1>
           <p>
@@ -153,7 +151,6 @@ export const Home = () => {
 };
 
 Home.propTypes = {
-  prop: PropTypes,
 };
 
 const mapStateToProps = (state) => ({});

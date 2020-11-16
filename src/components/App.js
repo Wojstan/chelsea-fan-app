@@ -4,9 +4,10 @@ import { Provider } from "react-redux";
 import "../static/main.css";
 
 import Home from "./Home";
-import Match from "./Match";
+import Matches from "./Matches";
 import Players from "./Players";
 import store from "../store";
+import MatchCentre from "./MatchCentre";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/match" component={Match} />
+          <Route exact path="/matches" component={Matches} />
+          <Route exact path="/matches/:id" component={MatchCentre} />
           <Route exact path="/players" component={Players} />
         </Switch>
       </Router>

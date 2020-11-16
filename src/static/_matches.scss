@@ -1,0 +1,143 @@
+.matches-container {
+  background-color: #efefef;
+
+  .matches-header {
+    background: url("./img/matchesView.png") center center;
+    background-size: cover;
+
+    .header-info {
+      height: 100%;
+      padding: 2vh;
+      width: 85%;
+      margin: 0 auto 0 auto;
+
+      button {
+        width: 15vh;
+        height: 5vh;
+        margin-bottom: 5vh;
+      }
+      h1 {
+        color: white;
+        font-size: 48px;
+      }
+      h4 {
+        font-size: 30px;
+        font-weight: 400;
+        color: white;
+        margin-bottom: 2vh;
+      }
+      p {
+        margin-top: 2vh;
+        color: #efefef;
+        font-weight: 300;
+      }
+    }
+  }
+
+  .result-fixture {
+    margin-top: 5vh;
+    h1 {
+      color: #001489;
+      font-size: 38px;
+      margin-bottom: 3vh;
+    }
+
+    .match-list {
+      ul {
+        list-style: none;
+        li {
+          margin-bottom: 2.5vh;
+
+          &:hover {
+            .center {
+              text-decoration: underline;
+            }
+          }
+
+          header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1vh;
+
+            h5 {
+              font-size: 18px;
+            }
+            p {
+              color: #001489;
+              font-weight: 600;
+            }
+          }
+
+          .match-info {
+            background-color: white;
+            box-shadow: 0 2px 4px 0 rgba(185, 185, 185, 0.2),
+              0 3px 10px 0 rgba(206, 206, 206, 0.19);
+            padding: 1vh 3vh 1vh 3vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .img {
+              height: 5vh;
+              width: 5vh;
+              img {
+                height: 100%;
+              }
+            }
+            .main {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 60%;
+              h4 {
+                width: 35%;
+                font-size: 18px;
+              }
+              h3 {
+                font-size: 22px;
+                font-weight: 600;
+                text-align: center;
+                margin: 0 1vh 0 1vh;
+                width: 10%;
+              }
+              .toleft {
+                text-align: left;
+                margin-left: 1vh;
+              }
+              .toright {
+                text-align: right;
+                margin-right: 1vh;
+              }
+            }
+            .competition {
+              width: 20%;
+            }
+            .center {
+              text-align: right;
+              width: 20%;
+              color: #001489;
+            }
+          }
+        }
+      }
+    }
+
+    .settings {
+      background-color: white;
+      box-shadow: 0 2px 4px 0 rgba(185, 185, 185, 0.2),
+        0 3px 10px 0 rgba(206, 206, 206, 0.19);
+
+      height: 40vh;
+      padding: 2vh;
+      h3 {
+        color: #001489;
+        font-size: 32px;
+        margin-bottom: 3vh;
+      }
+      label {
+        font-family: "Poppins", sans-serif;
+        color: #898989;
+      }
+    }
+  }
+}
