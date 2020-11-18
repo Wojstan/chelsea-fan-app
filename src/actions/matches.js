@@ -49,7 +49,7 @@ export const modifyLineup = (id, team) => (dispatch) => {
 }
 
 export const modifyRatings = (id, rates) => (dispatch) => {
-
+  console.log("runnner");
   fetch(`http://localhost:4442/matches/ratings/${id}`, {
     method: 'PATCH',
     headers: { "Content-Type": "application/json" },

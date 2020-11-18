@@ -13,7 +13,7 @@ export const Team = ({ players, getPlayers, team, matchId, modifyLineup }) => {
   const addPlayer = (player) => {
     const contains = team.filter(row => row.number === player.number);
     if (team.length < 11 && contains.length === 0) {
-      modifyLineup(matchId, [...team, { number: player.number, last: player.last }]);
+      modifyLineup(matchId, [...team, { number: player.number, last: player.last, img: player.img }]);
     }
   }
 

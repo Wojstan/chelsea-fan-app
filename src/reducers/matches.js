@@ -1,4 +1,4 @@
-import { ADD_MATCH, MODIFY_LINEUP, GET_MATCH, MODIFY_GOALS } from "../actions/types"
+import { ADD_MATCH, MODIFY_LINEUP, GET_MATCH, MODIFY_GOALS, MODIFY_RATINGS } from "../actions/types"
 
 const initialState = {
   game: {
@@ -29,6 +29,12 @@ export default function (state = initialState, action) {
       }
 
     case MODIFY_GOALS:
+      return {
+        ...state,
+        game: action.payload
+      }
+
+    case MODIFY_RATINGS:
       return {
         ...state,
         game: action.payload

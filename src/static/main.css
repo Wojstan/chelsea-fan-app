@@ -814,6 +814,84 @@
   cursor: pointer;
 }
 
+.match-centre .ratings {
+  text-align: center;
+  background-color: #efefef;
+}
+
+.match-centre .ratings header {
+  margin-top: 7vh;
+  padding-bottom: 8vh;
+  background-color: white;
+}
+
+.match-centre .ratings header h1 {
+  margin-bottom: 3vh;
+  color: #001489;
+  font-size: 56px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.match-centre .ratings header p {
+  width: 45%;
+  margin: 0 auto 0 auto;
+  text-align: center;
+}
+
+.match-centre .ratings button {
+  margin: 4vh 0 8vh 0;
+}
+
+.match-centre .ratings .rating {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0;
+  margin-top: 3vh;
+}
+
+.match-centre .ratings .rating .info {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 2vh;
+}
+
+.match-centre .ratings .rating .info h2 {
+  color: #001489;
+  margin: 0;
+  font-weight: 500;
+  font-size: 26px;
+}
+
+.match-centre .ratings .rating .info input {
+  width: 90px;
+  font-size: 40px;
+  text-align: center;
+  margin: 0;
+}
+
+.match-centre .ratings .rating .img-place {
+  height: 200px;
+  padding-top: 2vh;
+}
+
+.match-centre .ratings .rating .img-place img {
+  height: 100%;
+}
+
 @media screen and (max-width: 1200px) {
   .match-centre .centre {
     background: #efefef;

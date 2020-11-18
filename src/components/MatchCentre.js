@@ -11,6 +11,7 @@ import Scorers from "./matchCentre/Scorers";
 import lion from "../static/img/lion.png";
 
 import { getMatch } from "../actions/matches";
+import Ratings from "./matchCentre/Ratings";
 
 export const MatchCentre = ({ match, getMatch, game }) => {
   const [matchData, setMatchData] = useState({
@@ -36,7 +37,6 @@ export const MatchCentre = ({ match, getMatch, game }) => {
     getMatch(id);
   }, [id, getMatch]);
 
-
   return (
     <main className="match-centre">
       <section className="centre">
@@ -55,30 +55,45 @@ export const MatchCentre = ({ match, getMatch, game }) => {
                 />
               </div>
               <div className="white-block scorers">
-                <Scorers
-                  matchId={id}
-                  scorers={game.goals}
-                />
+                <Scorers matchId={id} scorers={game.goals} />
               </div>
             </div>
             <div className="col-xl-4">
               <div className="white-block team">
                 <h2>Set lineup</h2>
-                <Team
-                  matchId={id}
-                  team={game.lineup}
-                />
+                <Team matchId={id} team={game.lineup} />
               </div>
             </div>
             <div className="col-xl-4">
               <div className="lineup">
-                <Lineup matchId={id} lineup={game.lineup} scorers={game.goals} />
+                <Lineup
+                  matchId={id}
+                  lineup={game.lineup}
+                  scorers={game.goals}
+                />
                 <div className="img-lion">
                   <img src={lion} alt="" />
                 </div>
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="ratings">
+        <header>
+          <h1>Pick ratings here</h1>
+          <p>
+            After setting match result and lineup, rate the players and save it
+            in the datebase.
+          </p>
+        </header>
+        <div className="container">
+          <Ratings
+            matchId={id}
+            lineup={game.lineup}
+            propRatings={game.ratings}
+          />
         </div>
       </section>
     </main>

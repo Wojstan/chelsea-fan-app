@@ -30,5 +30,10 @@ export const Scorers = ({ scorers, matchId, modifyGoals }) => {
     </div>
   );
 };
+Scorers.propTypes = {
+  scorers: PropTypes.array.isRequired,
+  modifyGoals: PropTypes.func.isRequired,
+  matchId: PropTypes.string.isRequired
+}
 
 export default connect(null, { modifyGoals })(Scorers);

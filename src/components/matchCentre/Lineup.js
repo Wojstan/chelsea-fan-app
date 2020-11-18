@@ -2,8 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import { modifyLineup } from "../../actions/matches";
-import { modifyGoals } from "../../actions/matches";
+import { modifyLineup, modifyGoals } from "../../actions/matches";
 
 import football from "../../static/img/footballWhite.png";
 

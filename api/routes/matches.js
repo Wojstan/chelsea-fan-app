@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 const Match = require("../models/Match");
 
@@ -17,14 +17,14 @@ router.post("/:matchId", async (req, res) => {
     lineup: req.body.lineup,
     ratings: req.body.ratings,
     goals: req.body.goals,
-  })
+  });
   try {
-    const savedMatch = await match.save()
+    const savedMatch = await match.save();
     res.json(savedMatch);
   } catch (err) {
     res.json({ message: err });
   }
-})
+});
 
 router.patch("/lineup/:matchId", async (req, res) => {
   try {
@@ -37,7 +37,7 @@ router.patch("/lineup/:matchId", async (req, res) => {
   } catch (err) {
     res.json({ message: err });
   }
-})
+});
 
 router.patch("/ratings/:matchId", async (req, res) => {
   try {
@@ -47,15 +47,13 @@ router.patch("/ratings/:matchId", async (req, res) => {
       { new: true, useFindAndModify: false }
     );
     res.json(updatedMatch);
-
   } catch (err) {
     res.json({ message: err });
   }
-})
+});
 
 router.patch("/goals/:matchId", async (req, res) => {
   try {
-    console.log(req.body)
     const updatedMatch = await Match.findByIdAndUpdate(
       { _id: req.params.matchId },
       { $set: { goals: req.body.goals } },
@@ -65,6 +63,6 @@ router.patch("/goals/:matchId", async (req, res) => {
   } catch (err) {
     res.json({ message: err });
   }
-})
+});
 
 module.exports = router;
