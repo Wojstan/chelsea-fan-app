@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Counter({ nextMatch, home, away }) {
   const [now, setNow] = useState(new Date().getTime());
@@ -53,7 +54,10 @@ export default function Counter({ nextMatch, home, away }) {
         <span></span>
         <h1 className="seconds">{time.seconds} s</h1>
       </div>
-      <button className="blue">See Fixture</button>
+
+      <Link to="/matches">
+        <button className="blue">See Fixture</button>
+      </Link>
     </div>
   );
 }

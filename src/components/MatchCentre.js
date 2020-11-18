@@ -18,10 +18,6 @@ export const MatchCentre = ({ match, getMatch, game }) => {
     awayTeam: { id: 66, name: "" },
     score: { fullTime: { homeTeam: 0, awayTeam: 0 } },
   });
-  const [selectedPlayer, selectPlayer] = useState({
-    last: "",
-    number: 0,
-  });
   const id = match.params.id;
 
   useEffect(() => {
@@ -40,7 +36,6 @@ export const MatchCentre = ({ match, getMatch, game }) => {
     getMatch(id);
   }, [id, getMatch]);
 
-  console.log(game);
 
   return (
     <main className="match-centre">
@@ -61,12 +56,8 @@ export const MatchCentre = ({ match, getMatch, game }) => {
               </div>
               <div className="white-block scorers">
                 <Scorers
-                  lineup={game.lineup}
-                  goals={
-                    matchData.homeTeam.name === "Chelsea FC"
-                      ? matchData.score.fullTime.homeTeam
-                      : matchData.score.fullTime.awayTeam
-                  }
+                  matchId={id}
+                  scorers={game.goals}
                 />
               </div>
             </div>
@@ -74,14 +65,14 @@ export const MatchCentre = ({ match, getMatch, game }) => {
               <div className="white-block team">
                 <h2>Set lineup</h2>
                 <Team
-                  selectedPlayer={selectedPlayer}
-                  selectPlayer={selectPlayer}
+                  matchId={id}
+                  team={game.lineup}
                 />
               </div>
             </div>
             <div className="col-xl-4">
               <div className="lineup">
-                <Lineup lineup={game.lineup} />
+                <Lineup matchId={id} lineup={game.lineup} scorers={game.goals} />
                 <div className="img-lion">
                   <img src={lion} alt="" />
                 </div>

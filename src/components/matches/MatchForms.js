@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function MatchForms({ formsData, setFormsData }) {
-
   const onChange = (e) => {
     setFormsData({ ...formsData, [e.target.name]: e.target.value });
   };
@@ -39,7 +38,12 @@ export default function MatchForms({ formsData, setFormsData }) {
           <label value={formsData.search} htmlFor="search">
             Search
           </label>
-          <input placeholder="By club name..." onChange={onChange} id="search" name="search" />
+          <input
+            placeholder="By club name..."
+            onChange={onChange}
+            id="search"
+            name="search"
+          />
         </div>
       </form>
     </div>

@@ -59,10 +59,12 @@ export const Home = () => {
               guest: finished[finished.length - 1].awayTeam.name,
               homeScore: finished[finished.length - 1].score.fullTime.homeTeam,
               awayScore: finished[finished.length - 1].score.fullTime.awayTeam,
-              logoHome: `https://crests.football-data.org/${finished[finished.length - 1].homeTeam.id
-                }.svg`,
-              logoAway: `https://crests.football-data.org/${finished[finished.length - 1].awayTeam.id
-                }.svg`,
+              logoHome: `https://crests.football-data.org/${
+                finished[finished.length - 1].homeTeam.id
+              }.svg`,
+              logoAway: `https://crests.football-data.org/${
+                finished[finished.length - 1].awayTeam.id
+              }.svg`,
               competition: finished[finished.length - 1].competition.name,
               date: finished[finished.length - 1].utcDate,
             },
@@ -82,8 +84,6 @@ export const Home = () => {
     fetchData();
   }, []);
 
-  console.log(matches);
-
   return (
     <main className="home">
       <header className="main-header">
@@ -96,8 +96,20 @@ export const Home = () => {
             in 26 years and in doing so became the first black manager to win a
             major British football trophy. This is Gullit's phenomenal story...
           </p>
-          <button className="white">Official Website</button>
-          <button className="white">PL Website</button>
+          <a
+            href="https://www.chelseafc.com/en"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <button className="white">Official Website</button>
+          </a>
+          <a
+            href="https://www.premierleague.com/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <button className="white">PL Website</button>
+          </a>
         </article>
       </header>
       <article className="about-info">
@@ -150,8 +162,7 @@ export const Home = () => {
   );
 };
 
-Home.propTypes = {
-};
+Home.propTypes = {};
 
 const mapStateToProps = (state) => ({});
 

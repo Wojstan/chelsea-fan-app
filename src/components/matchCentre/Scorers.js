@@ -2,27 +2,33 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-export const Scorers = ({ goals, lineup }) => {
+import { modifyGoals } from "../../actions/matches";
+
+import football from "../../static/img/footballBlue.png";
+
+export const Scorers = ({ scorers, matchId, modifyGoals }) => {
+  const deleteGoal = (number) => {
+    const remove = scorers.filter((row) => row.number !== number);
+    modifyGoals(matchId, remove);
+  };
+
   return (
     <div>
-      <h2>Goals & Assists</h2>
-      {[...Array(parseInt(goals))].map((i, j) => (
-        <select key={j} name="" id="">
-          {lineup.map((row) => (
-            <option key={row.number} value={row.number}>{row.last}</option>
-          ))}
-        </select>
-      ))}
+      <h2>Goals</h2>
+      <p>Click the ball at the lineup section to add scorer</p>
+      {scorers.length === 0 && <h3>NO GOALS</h3>}
+      <ul>
+        {scorers.map((row, i) => (
+          <li key={i} onClick={() => deleteGoal(row.number)}>
+            <div className="img">
+              <img src={football} alt="" />
+            </div>
+            <h5>{row.last}</h5>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
 
-Scorers.propTypes = {
-
-};
-
-const mapStateToProps = (state) => ({});
-
-const mapDispatchToProps = {};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Scorers);
+export default connect(null, { modifyGoals })(Scorers);

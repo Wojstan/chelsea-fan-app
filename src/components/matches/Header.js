@@ -6,7 +6,7 @@ export default function Header({ home, away, type }) {
   return (
     <header className="matches-header">
       <Menu color="white" />
-      <div className="header-info">
+      <div className="header-info container">
         <span>
           <p>LAST MATCH:</p>
           <h4>{home} - {away}</h4>
