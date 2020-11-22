@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from "react";
 
+import { TableContainer } from "../styled/HomeStyled";
+import {
+  StyledTable,
+  TableParagraph,
+  TablePoints,
+  TableTeam,
+} from "../styled/StyledTable";
+import { Important, MidTitle } from "../styled/Titles";
 export default function Table() {
   const [data, setData] = useState([]);
 
@@ -18,9 +26,11 @@ export default function Table() {
   }, []);
 
   return (
-    <div className="table-container">
-      <h2>PREMIER LEAGUE 2020/21</h2>
-      <table>
+    <TableContainer>
+      <MidTitle color="#001489" mb="4vh">
+        PREMIER LEAGUE 2020/21
+      </MidTitle>
+      <StyledTable>
         <thead>
           <tr>
             <th>POS.</th>
@@ -35,25 +45,45 @@ export default function Table() {
           {data.map((row) => (
             <tr key={row.position}>
               <td>
-                {row.team.name === "Chelsea FC" && <p>{row.position}</p>}
-                {row.team.name !== "Chelsea FC" && row.position}
+                {row.team.name === "Chelsea FC" && (
+                  <TableParagraph>
+                    <Important>{row.position}</Important>
+                  </TableParagraph>
+                )}
+                {row.team.name !== "Chelsea FC" && (
+                  <TableParagraph>{row.position}</TableParagraph>
+                )}
               </td>
-              <td className="team">
-                <div className="img-table">
-                  <img src={row.team.crestUrl} alt="" />
-                </div>
-                {row.team.name === "Chelsea FC" && <p>{row.team.name}</p>}
-                {row.team.name !== "Chelsea FC" && row.team.name}
-              </td>
-              <td>{row.playedGames}</td>
               <td>
-                {row.goalsFor}:{row.goalsAgainst}
+                <TableTeam horizontal="center">
+                  <div className="img-table">
+                    <img src={row.team.crestUrl} alt="" />
+                  </div>
+                  {row.team.name === "Chelsea FC" && (
+                    <TableParagraph>
+                      <Important>{row.team.name}</Important>
+                    </TableParagraph>
+                  )}
+                  {row.team.name !== "Chelsea FC" && (
+                    <TableParagraph>{row.team.name}</TableParagraph>
+                  )}
+                </TableTeam>
               </td>
-              <td className="points">{row.points}</td>
+              <td>
+                <TableParagraph>{row.playedGames}</TableParagraph>
+              </td>
+              <td>
+                <TableParagraph>
+                  {row.goalsFor}:{row.goalsAgainst}
+                </TableParagraph>
+              </td>
+              <td>
+                <TablePoints>{row.points}</TablePoints>
+              </td>
             </tr>
           ))}
         </tbody>
-      </table>
-    </div>
+      </StyledTable>
+    </TableContainer>
   );
 }

@@ -1,4 +1,7 @@
 import React from "react";
+import { MatchBlock as Block, Flex } from "../styled/Common";
+import { MidTitle, StyledParagraph, Important, ScoreLabel } from "../styled/Titles";
+import { CrestPlace, Crest, MatchResult } from "../styled/HomeStyled";
 
 export default function MatchBlock({
   home,
@@ -12,51 +15,56 @@ export default function MatchBlock({
   logoGuest,
 }) {
   return (
-    <div className="match-block">
-      <header>
+    <Block>
+      <Flex vertical="space-between" horizontal="center">
         <div>
           {home === "Chelsea FC" && (
-            <h3>
-              <strong>{home}</strong> - {guest}
-            </h3>
+            <MidTitle>
+              <Important>{home}</Important> - {guest}
+            </MidTitle>
           )}
           {guest === "Chelsea FC" && (
-            <h3>
-              {home} - <strong>{guest}</strong>
-            </h3>
+            <MidTitle>
+              {home} - <Important>{guest}</Important>
+            </MidTitle>
           )}
 
-          <div className="match-sm-data">
+          <Flex>
             {home === "Chelsea FC" && (
-              <p>
-                <strong>HOME</strong>
-              </p>
+              <StyledParagraph>
+                <Important mr="10px">HOME</Important>
+              </StyledParagraph>
             )}
             {guest === "Chelsea FC" && (
-              <p>
-                <strong>AWAY</strong>
-              </p>
+              <StyledParagraph>
+                <Important mr="10px">AWAY</Important>
+              </StyledParagraph>
             )}
 
-            <p>{time.toLocaleString()}</p>
-          </div>
+            <StyledParagraph>{time.toLocaleString()}</StyledParagraph>
+          </Flex>
+
         </div>
-        <h2>{title}</h2>
-      </header>
-      <main>
-        <div className="logoImg">
-          <img src={logoHome} alt="" />
-        </div>
-        <h5>
+        <MidTitle blue>{title}</MidTitle>
+      </Flex >
+
+      <MatchResult vertical="center" horizontal="center" >
+
+        <CrestPlace>
+          <Crest src={logoHome} alt="" />
+        </CrestPlace>
+        <ScoreLabel>
           {scoreHome} - {scoreGuest}
-        </h5>
-        <div className="logoImg">
-          <img src={logoGuest} alt="" />
-        </div>
-      </main>
-      <footer>
+        </ScoreLabel>
+        <CrestPlace>
+          <Crest src={logoGuest} alt="" />
+        </CrestPlace>
+
+      </MatchResult>
+
+      <Flex vertical="center" horizontal="center">
         <img src={type} alt="" />
-      </footer>
-    </div>
+      </Flex>
+    </Block>
   );
 }

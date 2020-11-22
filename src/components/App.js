@@ -1,7 +1,7 @@
 import React from "react";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
-import "../static/main.css";
+import "../styles/main.css";
 
 import Home from "./Home";
 import Matches from "./Matches";

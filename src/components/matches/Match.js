@@ -1,5 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Flex } from "../styled/Common";
+
+import {
+  MatchElement,
+  MatchInfo,
+  MatchLink,
+  StyledCompetition,
+  MainScore,
+  ScoreCrest,
+  ScoreResult,
+  TeamName,
+  StyledCentre,
+} from "../styled/StyledMatches";
+import { StyledParagraph, Important } from "../styled/Titles";
 
 export default function Match({
   id,
@@ -13,34 +26,42 @@ export default function Match({
   awayLogo,
 }) {
   return (
-    <Link className="no-underline" to={`/matches/${id}`}>
-      <li>
-        <header>
-          <h5>{date.toLocaleString()}</h5>
-          <p>HOME</p>
-        </header>
-
-        <div className="match-info">
-          <p className="competition">{competition}</p>
-          <div className="main">
-            <h4 className="toright">{home}</h4>
-            <div className="img">
+    <MatchElement>
+      <Flex vertical="space-between" horizontal="center">
+        <StyledParagraph mb>
+          <Important dark>{date.toLocaleString()}</Important>
+        </StyledParagraph>
+        <StyledParagraph mb>
+          <Important>HOME</Important>
+        </StyledParagraph>
+      </Flex>
+      <MatchLink to={`/matches/${id}`}>
+        <MatchInfo vertical="center" horizontal="center">
+          <StyledCompetition>{competition}</StyledCompetition>
+          <MainScore vertical="space-between" horizontal="center">
+            <TeamName right color="#242424">
+              {home}
+            </TeamName>
+            <ScoreCrest>
               <img src={homeLogo} alt="" />
-            </div>
+            </ScoreCrest>
 
-            <h3>
+            <ScoreResult>
               {homeScore} - {awayScore}
-            </h3>
+            </ScoreResult>
 
-            <div className="img">
+            <ScoreCrest className="img">
               <img src={awayLogo} alt="" />
-            </div>
+            </ScoreCrest>
 
-            <h4 className="toleft">{away}</h4>
-          </div>
-          <p className="center">Match centre {">"}</p>
-        </div>
-      </li>
-    </Link>
+            <TeamName color="#242424">{away}</TeamName>
+          </MainScore>
+
+          <StyledCentre>
+            <Important blue>Match centre {">"}</Important>
+          </StyledCentre>
+        </MatchInfo>
+      </MatchLink>
+    </MatchElement>
   );
 }

@@ -4,45 +4,58 @@ import { modifyLineup } from "../../actions/matches";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-export const Team = ({ players, getPlayers, team, matchId, modifyLineup }) => {
+import {
+  TeamBlock,
+  TeamList,
+  TeamNumber,
+  PositionList,
+  StyledPlayer,
+  PositionName,
+} from "../styled/StyledCentre";
+import { Important, MidTitle, StyledParagraph } from "../styled/Titles";
+import { Flex } from "../styled/Common";
 
+export const Team = ({ players, getPlayers, team, matchId, modifyLineup }) => {
   useEffect(() => {
     getPlayers();
   }, [getPlayers]);
 
   const addPlayer = (player) => {
-    const contains = team.filter(row => row.number === player.number);
+    const contains = team.filter((row) => row.number === player.number);
     if (team.length < 11 && contains.length === 0) {
-      modifyLineup(matchId, [...team, { number: player.number, last: player.last, img: player.img }]);
+      modifyLineup(matchId, [
+        ...team,
+        { number: player.number, last: player.last, img: player.img },
+      ]);
     }
-  }
+  };
 
   return (
-    <div className="team-list">
-      <ul>
+    <TeamBlock>
+      <MidTitle color="#001489">Set Lineup</MidTitle>
+      <TeamList>
         {players.map((row, i) => (
           <li key={i}>
-            <h4>{row.name}</h4>
-            <ul>
+            <PositionName>{row.name}</PositionName>
+            <PositionList>
               {row.players.map((player) => (
-                <li
+                <StyledPlayer
                   key={player.number}
-                  className="player-row"
-                  onClick={() =>
-                    addPlayer(player)
-                  }
+                  onClick={() => addPlayer(player)}
                 >
-                  <h5>{player.number}</h5>
-                  <p>
-                    {player.name} <strong>{player.last}</strong>
-                  </p>
-                </li>
+                  <Flex>
+                    <TeamNumber>{player.number}</TeamNumber>
+                    <StyledParagraph>
+                      {player.name} <Important dark>{player.last}</Important>
+                    </StyledParagraph>
+                  </Flex>
+                </StyledPlayer>
               ))}
-            </ul>
+            </PositionList>
           </li>
         ))}
-      </ul>
-    </div>
+      </TeamList>
+    </TeamBlock>
   );
 };
 

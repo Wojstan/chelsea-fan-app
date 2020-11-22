@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { StyledParagraph, Important } from "../styled/Titles";
+import { Timer, TimeNumber, SecondNumber } from "../styled/HomeStyled"
+import { BlueButton } from "../styled/Button"
+import { Separator } from "../styled/Common";
 
 export default function Counter({ nextMatch, home, away }) {
   const [now, setNow] = useState(new Date().getTime());
@@ -33,30 +37,30 @@ export default function Counter({ nextMatch, home, away }) {
   }
 
   return (
-    <div className="counter-block">
+    <div>
       {home === "Chelsea FC" && (
-        <p>
+        <StyledParagraph center>
           Till the next game with <strong>{away}</strong>
-        </p>
+        </StyledParagraph>
       )}
       {away === "Chelsea FC" && (
-        <p>
-          Till the next game with <strong>{home}</strong>
-        </p>
+        <StyledParagraph center>
+          Till the next game with <Important dark>{home}</Important>
+        </StyledParagraph>
       )}
-      <div className="separator"></div>
-      <div className="timer">
-        <h1>{time.days} d</h1>
+      <Separator center width="40%" />
+      <Timer vertical="center" horizontal="center">
+        <TimeNumber>{time.days} d</TimeNumber>
         <span></span>
-        <h1>{time.hours} h</h1>
+        <TimeNumber>{time.hours} h</TimeNumber>
         <span></span>
-        <h1>{time.minutes} m</h1>
+        <TimeNumber>{time.minutes} m</TimeNumber>
         <span></span>
-        <h1 className="seconds">{time.seconds} s</h1>
-      </div>
+        <SecondNumber>{time.seconds} s</SecondNumber>
+      </Timer>
 
       <Link to="/matches">
-        <button className="blue">See Fixture</button>
+        <BlueButton>FIXTURE</BlueButton>
       </Link>
     </div>
   );

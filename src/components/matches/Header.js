@@ -2,18 +2,22 @@ import React from 'react'
 
 import Menu from "../layout/Menu"
 
+import { SmWhiteButton } from "../styled/Button"
+import { Header as StyledHeader, HeaderInfo } from "../styled/StyledMatches";
+import { MidTitle, PageTitle, StyledParagraph } from '../styled/Titles';
+
 export default function Header({ home, away, type }) {
   return (
-    <header className="matches-header">
+    <StyledHeader>
       <Menu color="white" />
-      <div className="header-info container">
-        <span>
-          <p>LAST MATCH:</p>
-          <h4>{home} - {away}</h4>
-          <button className="white">Match Centre</button>
-        </span>
-        <h1>{type}</h1>
+      <div className="container">
+        <HeaderInfo>
+          <StyledParagraph white mb="1vh">LAST MATCH:</StyledParagraph>
+          <MidTitle color="white">{home} - {away}</MidTitle>
+          <SmWhiteButton>MATCH CENTRE</SmWhiteButton>
+          <PageTitle>{type}</PageTitle>
+        </HeaderInfo>
       </div>
-    </header>
+    </StyledHeader>
   )
 }

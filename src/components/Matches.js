@@ -4,6 +4,8 @@ import Header from "./matches/Header";
 import MatchList from "./matches/MatchList";
 import MatchForms from "./matches/MatchForms";
 
+import { StyledMatches, ResultsFixture } from "./styled/StyledMatches"
+
 export default function Matches() {
   const [matches, setMatches] = useState({
     results: [],
@@ -13,6 +15,7 @@ export default function Matches() {
     search: "",
     type: "RESULTS",
     competition: "",
+    amount: 10,
   });
 
   useEffect(() => {
@@ -40,7 +43,7 @@ export default function Matches() {
   }, []);
 
   return (
-    <main className="matches-container">
+    <StyledMatches>
       {matches.results.length > 0 && (
         <Header
           type={forms.type}
@@ -49,7 +52,7 @@ export default function Matches() {
         />
       )}
       <div className="container">
-        <section className="result-fixture">
+        <ResultsFixture>
           <div className="row">
             <div className="col-xl-9">
               <MatchList
@@ -59,14 +62,15 @@ export default function Matches() {
                 }
                 competition={forms.competition}
                 search={forms.search}
+                amount={forms.amount}
               />
             </div>
             <div className="col-xl-3">
               <MatchForms formsData={forms} setFormsData={setForms} />
             </div>
           </div>
-        </section>
+        </ResultsFixture>
       </div>
-    </main>
+    </StyledMatches>
   );
 }

@@ -1,14 +1,22 @@
 import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
 
 import Menu from "./layout/Menu";
 import Counter from "./home/Counter";
 import MatchBlock from "./home/MatchBlock";
 import Table from "./home/Table";
 
+import { BigTitle, StyledParagraph } from "./styled/Titles";
+import {
+  MainInfo,
+  Matches,
+  AboutInfo,
+  Header,
+  StyledCounter,
+  Statistics,
+} from "./styled/HomeStyled";
+import { WhiteButton } from "./styled/Button";
+
 import plLogo from "../static/img/plLogo.png";
-import Stats from "./home/Stats";
 
 export const Home = () => {
   const [matches, setMatches] = useState({
@@ -59,12 +67,10 @@ export const Home = () => {
               guest: finished[finished.length - 1].awayTeam.name,
               homeScore: finished[finished.length - 1].score.fullTime.homeTeam,
               awayScore: finished[finished.length - 1].score.fullTime.awayTeam,
-              logoHome: `https://crests.football-data.org/${
-                finished[finished.length - 1].homeTeam.id
-              }.svg`,
-              logoAway: `https://crests.football-data.org/${
-                finished[finished.length - 1].awayTeam.id
-              }.svg`,
+              logoHome: `https://crests.football-data.org/${finished[finished.length - 1].homeTeam.id
+                }.svg`,
+              logoAway: `https://crests.football-data.org/${finished[finished.length - 1].awayTeam.id
+                }.svg`,
               competition: finished[finished.length - 1].competition.name,
               date: finished[finished.length - 1].utcDate,
             },
@@ -85,87 +91,91 @@ export const Home = () => {
   }, []);
 
   return (
-    <main className="home">
-      <header className="main-header">
+    <main>
+      <Header>
         <Menu color="white" />
-        <article className="main-info">
-          <h1>Chelsea FC Fan App</h1>
-          <p>
+
+        <MainInfo column vertical="center">
+          <BigTitle>Chelsea Fc Fan App</BigTitle>
+          <StyledParagraph white center>
             One of Chelsea's most iconic players made history with the Blues
             twice in 1997 as Ruud Gullit led the Blues to their first trophy win
             in 26 years and in doing so became the first black manager to win a
             major British football trophy. This is Gullit's phenomenal story...
-          </p>
+          </StyledParagraph>
           <a
             href="https://www.chelseafc.com/en"
             target="_blank"
             rel="noreferrer"
           >
-            <button className="white">Official Website</button>
+            <WhiteButton>Official Website</WhiteButton>
           </a>
           <a
             href="https://www.premierleague.com/"
             target="_blank"
             rel="noreferrer"
           >
-            <button className="white">PL Website</button>
+            <WhiteButton>PL Website</WhiteButton>
           </a>
-        </article>
-      </header>
-      <article className="about-info">
-        <h2>Add your ratings after every match</h2>
-        <p>
+        </MainInfo>
+      </Header>
+
+      <AboutInfo>
+        <BigTitle blue>Add your ratings after every match</BigTitle>
+        <StyledParagraph center>
           One of Chelsea's most iconic players made history with the Blues twice
           in 1997 as Ruud Gullit led the Blues to their first trophy win in 26
           years and in doing so became the first black manager to win a major
           British football trophy. This is Gullit's phenomenal story...
-        </p>
-      </article>
+        </StyledParagraph>
+      </AboutInfo>
 
-      <section className="matches">
-        <MatchBlock
-          title="LAST"
-          home={matches.last.home}
-          guest={matches.last.guest}
-          logoHome={matches.last.logoHome}
-          logoGuest={matches.last.logoAway}
-          type={plLogo}
-          time={new Date(matches.last.date)}
-          scoreHome={matches.last.homeScore}
-          scoreGuest={matches.last.awayScore}
-        />
-        <MatchBlock
-          title="NEXT"
-          home={matches.next.home}
-          guest={matches.next.guest}
-          logoHome={matches.next.logoHome}
-          logoGuest={matches.next.logoAway}
-          type={plLogo}
-          time={new Date(matches.next.date)}
-          scoreHome=""
-          scoreGuest=""
-        />
-      </section>
+      <Matches>
+        <div className="container">
+          <div className="row">
+            <div className="col-xl-6">
+              <MatchBlock
+                title="LAST"
+                home={matches.last.home}
+                guest={matches.last.guest}
+                logoHome={matches.last.logoHome}
+                logoGuest={matches.last.logoAway}
+                type={plLogo}
+                time={new Date(matches.last.date)}
+                scoreHome={matches.last.homeScore}
+                scoreGuest={matches.last.awayScore}
+              />
+            </div>
+            <div className="col-xl-6">
+              <MatchBlock
+                title="NEXT"
+                home={matches.next.home}
+                guest={matches.next.guest}
+                logoHome={matches.next.logoHome}
+                logoGuest={matches.next.logoAway}
+                type={plLogo}
+                time={new Date(matches.next.date)}
+                scoreHome=""
+                scoreGuest=""
+              />
+            </div>
+          </div>
+        </div>
+      </Matches>
 
-      <section className="stats">
+      <Statistics>
         <Table />
-        <Stats />
-      </section>
-      <section className="counter">
+      </Statistics>
+
+      <StyledCounter>
         <Counter
           home={matches.next.home}
           away={matches.next.guest}
           nextMatch={new Date(matches.next.date)}
         />
-      </section>
+      </StyledCounter>
     </main>
   );
 };
 
-Home.propTypes = {};
-
-const mapStateToProps = (state) => ({});
-
-const mapDispatchToProps = {};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default Home;

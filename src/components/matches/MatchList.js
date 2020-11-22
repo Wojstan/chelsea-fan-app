@@ -1,16 +1,18 @@
 import React from "react";
+import { LargeTitle } from "../styled/Titles";
+import { StyledMatchList } from "../styled/StyledMatches"
 import Match from "./Match";
 
-export default function MatchList({ data, type, competition, search }) {
+export default function MatchList({ data, type, competition, search, amount }) {
   return (
-    <div className="match-list">
-      {type === "FIXTURE" && <h1>NEXT 10 MATCHES</h1>}
-      {type === "RESULTS" && <h1>LAST 10 MATCHES</h1>}
-      <ul>
+    <div>
+      {type === "FIXTURE" && <LargeTitle blue start>NEXT 10 MATCHES</LargeTitle>}
+      {type === "RESULTS" && <LargeTitle blue start>LAST 10 MATCHES</LargeTitle>}
+      <StyledMatchList>
         {data
           .filter(
             (row, i) =>
-              i < 10 &&
+              i < amount &&
               (competition === ""
                 ? true
                 : row.competition.name === competition) &&
@@ -31,7 +33,7 @@ export default function MatchList({ data, type, competition, search }) {
               competition={row.competition.name}
             />
           ))}
-      </ul>
+      </StyledMatchList>
     </div>
   );
 }

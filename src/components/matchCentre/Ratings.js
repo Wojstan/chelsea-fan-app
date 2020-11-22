@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { modifyRatings } from "../../actions/matches";
 import { connect } from "react-redux";
 import SingleRating from "./SingleRating";
+import { BlueButton } from "../styled/Button";
 
 export const Ratings = ({ matchId, lineup, propRatings, modifyRatings }) => {
   const [ratings, setRatings] = useState([]);
@@ -34,9 +35,7 @@ export const Ratings = ({ matchId, lineup, propRatings, modifyRatings }) => {
             />
           ))}
         </div>
-        <button className="blue" type="submit">
-          Submit
-        </button>
+        <BlueButton type="submit">Submit</BlueButton>
       </form>
     </div>
   );

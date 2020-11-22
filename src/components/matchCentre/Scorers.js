@@ -5,7 +5,9 @@ import { connect } from "react-redux";
 import { modifyGoals } from "../../actions/matches";
 
 import football from "../../static/img/footballBlue.png";
-
+import { Important, MidTitle, StyledParagraph } from "../styled/Titles";
+import { GoalsList, ScorersBlock, ScoreBall } from "../styled/StyledCentre";
+import { Flex } from "../styled/Common";
 export const Scorers = ({ scorers, matchId, modifyGoals }) => {
   const deleteGoal = (number) => {
     const remove = scorers.filter((row) => row.number !== number);
@@ -13,27 +15,37 @@ export const Scorers = ({ scorers, matchId, modifyGoals }) => {
   };
 
   return (
-    <div>
-      <h2>Goals</h2>
-      <p>Click the ball at the lineup section to add scorer</p>
-      {scorers.length === 0 && <h3>NO GOALS</h3>}
-      <ul>
+    <ScorersBlock>
+      <MidTitle color="#001489">Goals</MidTitle>
+      <StyledParagraph mb>
+        Click the ball at the lineup section to add scorer
+      </StyledParagraph>
+      {scorers.length === 0 && (
+        <MidTitle center color="#242424">
+          NO GOALS
+        </MidTitle>
+      )}
+      <GoalsList>
         {scorers.map((row, i) => (
           <li key={i} onClick={() => deleteGoal(row.number)}>
-            <div className="img">
-              <img src={football} alt="" />
-            </div>
-            <h5>{row.last}</h5>
+            <Flex horizontal="center">
+              <ScoreBall>
+                <img src={football} alt="" />
+              </ScoreBall>
+              <StyledParagraph>
+                <Important>{row.last}</Important>
+              </StyledParagraph>
+            </Flex>
           </li>
         ))}
-      </ul>
-    </div>
+      </GoalsList>
+    </ScorersBlock>
   );
 };
 Scorers.propTypes = {
   scorers: PropTypes.array.isRequired,
   modifyGoals: PropTypes.func.isRequired,
-  matchId: PropTypes.string.isRequired
-}
+  matchId: PropTypes.string.isRequired,
+};
 
 export default connect(null, { modifyGoals })(Scorers);

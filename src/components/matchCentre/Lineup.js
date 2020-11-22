@@ -5,6 +5,12 @@ import { connect } from "react-redux";
 import { modifyLineup, modifyGoals } from "../../actions/matches";
 
 import football from "../../static/img/footballWhite.png";
+import lion from "../../static/img/lion.png";
+
+import { Flex } from "../styled/Common"
+import { LineupBlock, LineupList, LineupName, LineupNumber, PlayerLineup, Lion } from "../styled/StyledCentre"
+import { MidTitle } from "../styled/Titles";
+import { BallButton } from "../styled/Button"
 
 export const Lineup = ({
   matchId,
@@ -23,24 +29,30 @@ export const Lineup = ({
   };
 
   return (
-    <div>
-      <h2>Lineup</h2>
-      <ul>
+    <LineupBlock>
+      <Lion>
+        <img src={lion} alt="" />
+      </Lion>
+      <MidTitle color="white">Lineup</MidTitle>
+      <LineupList>
         {lineup.map((row) => (
           <li key={row.number}>
-            <div className="player" onClick={() => deletePlayer(row.number)}>
-              <h4>{row.number}</h4>
-              <h3>{row.last}</h3>
-            </div>
-            <div className="goals">
-              <button onClick={() => addGoal(row)}>
-                <img src={football} alt="" />
-              </button>
-            </div>
+            <Flex horizontal="center" vertical="space-between">
+              <PlayerLineup horizontal="center" onClick={() => deletePlayer(row.number)}>
+                <LineupNumber>{row.number}</LineupNumber>
+                <LineupName>{row.last}</LineupName>
+              </PlayerLineup>
+              <div>
+                <BallButton onClick={() => addGoal(row)}>
+                  <img src={football} alt="" />
+                </BallButton>
+              </div>
+            </Flex>
           </li>
         ))}
-      </ul>
-    </div>
+      </LineupList>
+
+    </LineupBlock>
   );
 };
 

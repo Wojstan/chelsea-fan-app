@@ -1,4 +1,8 @@
 import React from "react";
+import { CentreBlock, Flex } from "../styled/Common";
+import { CrestPlace, Crest } from "../styled/HomeStyled";
+import { ResultRow } from "../styled/StyledCentre";
+import { MidTitle, ScoreLabel, StyledParagraph } from "../styled/Titles";
 
 export default function Result({
   homeLogo,
@@ -9,26 +13,26 @@ export default function Result({
   awayScore,
 }) {
   return (
-    <div>
-      <h2>Match result</h2>
-      <div className="team-row">
-        <span>
-          <div className="img-result">
-            <img src={homeLogo} alt="" />
-          </div>
-          <p>{home}</p>
-        </span>
-        <h5>{homeScore}</h5>
-      </div>
-      <div className="team-row">
-        <span>
-          <div className="img-result">
-            <img src={awayLogo} alt="" />
-          </div>
-          <p>{away}</p>
-        </span>
-        <h5>{awayScore}</h5>
-      </div>
-    </div>
+    <CentreBlock>
+      <MidTitle color="#001489">Match Result</MidTitle>
+      <ResultRow horizontal="center" vertical="space-between">
+        <Flex horizontal="center">
+          <CrestPlace mr>
+            <Crest src={homeLogo} alt="" />
+          </CrestPlace>
+          <StyledParagraph>{home}</StyledParagraph>
+        </Flex>
+        <ScoreLabel nopd>{homeScore}</ScoreLabel>
+      </ResultRow>
+      <ResultRow horizontal="center" vertical="space-between">
+        <Flex horizontal="center">
+          <CrestPlace mr>
+            <Crest src={awayLogo} alt="" />
+          </CrestPlace>
+          <StyledParagraph>{away}</StyledParagraph>
+        </Flex>
+        <ScoreLabel nopd>{awayScore}</ScoreLabel>
+      </ResultRow>
+    </CentreBlock>
   );
 }

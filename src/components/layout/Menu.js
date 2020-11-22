@@ -2,28 +2,26 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../static/img/logo.png";
 
-export default function Menu({ color }) {
+import { NavItem, NavLink, NavList, NavBrand } from "../styled/Nav";
+
+export default function Menu() {
   return (
-    <nav className="main-menu">
-      <ul>
-        <li>
-          <Link className={`nav-link ${color}`} to="/matches">
-            MATCHES
-          </Link>
-        </li>
-        <li>
-          <Link className={`nav-link ${color}`} to="/">
-            <div className="img-menu">
+    <nav>
+      <NavList>
+        <NavItem>
+          <NavLink to="/matches">MATCHES</NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink to="/">
+            <NavBrand>
               <img src={logo} alt="" />
-            </div>
-          </Link>
-        </li>
-        <li>
-          <Link className={`nav-link ${color}`} to="/players">
-            PLAYERS
-          </Link>
-        </li>
-      </ul>
+            </NavBrand>
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink to="/players">PLAYERS</NavLink>
+        </NavItem>
+      </NavList>
     </nav>
   );
 }

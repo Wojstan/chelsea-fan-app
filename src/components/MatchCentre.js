@@ -2,22 +2,28 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import Menu from "./layout/Menu";
 import Lineup from "./matchCentre/Lineup";
 import Result from "./matchCentre/Result";
 import Team from "./matchCentre/Team";
 import Scorers from "./matchCentre/Scorers";
 
-import lion from "../static/img/lion.png";
-
 import { getMatch } from "../actions/matches";
 import Ratings from "./matchCentre/Ratings";
+
+import { StyledCentre, StyledRatings } from "./styled/StyledCentre";
+
+import Header from "./matchCentre/Header";
+import { BigTitle, StyledParagraph } from "./styled/Titles";
+import { AboutInfo } from "./styled/HomeStyled";
 
 export const MatchCentre = ({ match, getMatch, game }) => {
   const [matchData, setMatchData] = useState({
     homeTeam: { id: 66, name: "Chelsea FC" },
     awayTeam: { id: 66, name: "" },
     score: { fullTime: { homeTeam: 0, awayTeam: 0 } },
+    competition: { name: "" },
+    venue: "",
+    utcDate: "",
   });
   const id = match.params.id;
 
@@ -39,55 +45,46 @@ export const MatchCentre = ({ match, getMatch, game }) => {
 
   return (
     <main className="match-centre">
-      <section className="centre">
-        <Menu color="white" />
+      <Header
+        home={matchData.homeTeam.name}
+        away={matchData.awayTeam.name}
+        date={matchData.utcDate}
+        competition={matchData.competition.name}
+        venue={matchData.venue}
+      />
+      <StyledCentre>
         <div className="container">
           <div className="row">
             <div className="col-xl-4">
-              <div className="white-block result">
-                <Result
-                  homeLogo={`https://crests.football-data.org/${matchData.homeTeam.id}.svg`}
-                  awayLogo={`https://crests.football-data.org/${matchData.awayTeam.id}.svg`}
-                  home={matchData.homeTeam.name}
-                  away={matchData.awayTeam.name}
-                  homeScore={matchData.score.fullTime.homeTeam}
-                  awayScore={matchData.score.fullTime.awayTeam}
-                />
-              </div>
-              <div className="white-block scorers">
-                <Scorers matchId={id} scorers={game.goals} />
-              </div>
+              <Result
+                homeLogo={`https://crests.football-data.org/${matchData.homeTeam.id}.svg`}
+                awayLogo={`https://crests.football-data.org/${matchData.awayTeam.id}.svg`}
+                home={matchData.homeTeam.name}
+                away={matchData.awayTeam.name}
+                homeScore={matchData.score.fullTime.homeTeam}
+                awayScore={matchData.score.fullTime.awayTeam}
+              />
+              <Scorers matchId={id} scorers={game.goals} />
             </div>
             <div className="col-xl-4">
-              <div className="white-block team">
-                <h2>Set lineup</h2>
-                <Team matchId={id} team={game.lineup} />
-              </div>
+              <Team matchId={id} team={game.lineup} />
             </div>
             <div className="col-xl-4">
-              <div className="lineup">
-                <Lineup
-                  matchId={id}
-                  lineup={game.lineup}
-                  scorers={game.goals}
-                />
-                <div className="img-lion">
-                  <img src={lion} alt="" />
-                </div>
-              </div>
+              <Lineup matchId={id} lineup={game.lineup} scorers={game.goals} />
             </div>
           </div>
         </div>
-      </section>
+      </StyledCentre>
 
-      <section className="ratings">
-        <header>
-          <h1>Pick ratings here</h1>
-          <p>
-            After setting match result and lineup, rate the players and save it
-            in the datebase.
-          </p>
-        </header>
+      <AboutInfo>
+        <BigTitle blue>Pick ratings here</BigTitle>
+        <StyledParagraph center>
+          After setting match result and lineup, rate the players and save it in
+          the datebase.
+        </StyledParagraph>
+      </AboutInfo>
+
+      <StyledRatings>
         <div className="container">
           <Ratings
             matchId={id}
@@ -95,7 +92,7 @@ export const MatchCentre = ({ match, getMatch, game }) => {
             propRatings={game.ratings}
           />
         </div>
-      </section>
+      </StyledRatings>
     </main>
   );
 };
