@@ -1,7 +1,7 @@
 import React from "react";
 import { MatchBlock as Block, Flex } from "../styled/Common";
 import { MidTitle, StyledParagraph, Important, ScoreLabel } from "../styled/Titles";
-import { CrestPlace, Crest, MatchResult } from "../styled/HomeStyled";
+import { CrestPlace, Crest, MatchResult, CompetitionLogo } from "../styled/HomeStyled";
 
 export default function MatchBlock({
   home,
@@ -41,7 +41,7 @@ export default function MatchBlock({
               </StyledParagraph>
             )}
 
-            <StyledParagraph>{time.toLocaleString()}</StyledParagraph>
+            <StyledParagraph color="#898989">{time.toLocaleString()}</StyledParagraph>
           </Flex>
 
         </div>
@@ -62,9 +62,11 @@ export default function MatchBlock({
 
       </MatchResult>
 
-      <Flex vertical="center" horizontal="center">
+
+      <CompetitionLogo vertical="center" horizontal="center">
         <img src={type} alt="" />
-      </Flex>
+      </CompetitionLogo>
+
     </Block>
   );
 }

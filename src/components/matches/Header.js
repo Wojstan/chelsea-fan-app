@@ -12,7 +12,7 @@ export default function Header({ home, away, type }) {
       <Menu color="white" />
       <div className="container">
         <HeaderInfo>
-          <StyledParagraph white mb="1vh">LAST MATCH:</StyledParagraph>
+          <StyledParagraph color="white" mb>LAST MATCH:</StyledParagraph>
           <MidTitle color="white">{home} - {away}</MidTitle>
           <SmWhiteButton>MATCH CENTRE</SmWhiteButton>
           <PageTitle>{type}</PageTitle>

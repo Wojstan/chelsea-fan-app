@@ -7,6 +7,7 @@ require('dotenv/config');
 
 const playersRoute = require('./routes/players');
 const matchesRoute = require('./routes/matches');
+const arenaRoute = require('./routes/arena');
 
 
 app.use(function (req, res, next) {
@@ -20,6 +21,7 @@ app.use(function (req, res, next) {
 app.use(bodyParser.json());
 app.use('/players', playersRoute);
 app.use('/matches', matchesRoute);
+app.use('/arena', arenaRoute);
 
 //ROUTES
 app.get("/", (req, res) => {

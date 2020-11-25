@@ -17,7 +17,7 @@ export const Scorers = ({ scorers, matchId, modifyGoals }) => {
   return (
     <ScorersBlock>
       <MidTitle color="#001489">Goals</MidTitle>
-      <StyledParagraph mb>
+      <StyledParagraph mb color="#898989">
         Click the ball at the lineup section to add scorer
       </StyledParagraph>
       {scorers.length === 0 && (

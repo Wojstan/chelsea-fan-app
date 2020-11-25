@@ -20,7 +20,7 @@ export default function Result({
           <CrestPlace mr>
             <Crest src={homeLogo} alt="" />
           </CrestPlace>
-          <StyledParagraph>{home}</StyledParagraph>
+          <StyledParagraph color="#898989">{home}</StyledParagraph>
         </Flex>
         <ScoreLabel nopd>{homeScore}</ScoreLabel>
       </ResultRow>
@@ -29,7 +29,7 @@ export default function Result({
           <CrestPlace mr>
             <Crest src={awayLogo} alt="" />
           </CrestPlace>
-          <StyledParagraph>{away}</StyledParagraph>
+          <StyledParagraph color="#898989">{away}</StyledParagraph>
         </Flex>
         <ScoreLabel nopd>{awayScore}</ScoreLabel>
       </ResultRow>

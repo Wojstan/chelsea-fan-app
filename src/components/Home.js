@@ -17,6 +17,7 @@ import {
 import { WhiteButton } from "./styled/Button";
 
 import plLogo from "../static/img/plLogo.png";
+import clLogo from "../static/img/CLLogo.png";
 
 export const Home = () => {
   const [matches, setMatches] = useState({
@@ -97,7 +98,7 @@ export const Home = () => {
 
         <MainInfo column vertical="center">
           <BigTitle>Chelsea Fc Fan App</BigTitle>
-          <StyledParagraph white center>
+          <StyledParagraph color="white" center>
             One of Chelsea's most iconic players made history with the Blues
             twice in 1997 as Ruud Gullit led the Blues to their first trophy win
             in 26 years and in doing so became the first black manager to win a
@@ -122,7 +123,7 @@ export const Home = () => {
 
       <AboutInfo>
         <BigTitle blue>Add your ratings after every match</BigTitle>
-        <StyledParagraph center>
+        <StyledParagraph color="#898989" center>
           One of Chelsea's most iconic players made history with the Blues twice
           in 1997 as Ruud Gullit led the Blues to their first trophy win in 26
           years and in doing so became the first black manager to win a major
@@ -153,7 +154,7 @@ export const Home = () => {
                 guest={matches.next.guest}
                 logoHome={matches.next.logoHome}
                 logoGuest={matches.next.logoAway}
-                type={plLogo}
+                type={clLogo}
                 time={new Date(matches.next.date)}
                 scoreHome=""
                 scoreGuest=""

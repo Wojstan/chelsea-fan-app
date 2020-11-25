@@ -4,7 +4,7 @@ const initialState = {
   players: []
 }
 
-export default function (state = initialState, action) {
+export default function playerReducer(state = initialState, action) {
   switch (action.type) {
     case GET_PLAYERS:
       return {

@@ -18,7 +18,7 @@ export default function Header({ competition, home, away, date, venue }) {
         <MidTitle color="white">
           {home} - {away}
         </MidTitle>
-        <StyledParagraph mb white>
+        <StyledParagraph mb color="white">
           {venue}{" "}
           {new Date(date).toLocaleDateString()}
         </StyledParagraph>

@@ -45,7 +45,7 @@ export const Team = ({ players, getPlayers, team, matchId, modifyLineup }) => {
                 >
                   <Flex>
                     <TeamNumber>{player.number}</TeamNumber>
-                    <StyledParagraph>
+                    <StyledParagraph color="#898989">
                       {player.name} <Important dark>{player.last}</Important>
                     </StyledParagraph>
                   </Flex>

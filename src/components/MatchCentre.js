@@ -44,7 +44,7 @@ export const MatchCentre = ({ match, getMatch, game }) => {
   }, [id, getMatch]);
 
   return (
-    <main className="match-centre">
+    <main>
       <Header
         home={matchData.homeTeam.name}
         away={matchData.awayTeam.name}
@@ -78,7 +78,7 @@ export const MatchCentre = ({ match, getMatch, game }) => {
 
       <AboutInfo>
         <BigTitle blue>Pick ratings here</BigTitle>
-        <StyledParagraph center>
+        <StyledParagraph center color="#898989">
           After setting match result and lineup, rate the players and save it in
           the datebase.
         </StyledParagraph>

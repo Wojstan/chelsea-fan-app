@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Block, Flex } from "../styled/Common";
+import { Flex } from "../styled/Common";
 import styled from "styled-components";
 import matchesBg from "../../static/img/matchesView.png";
 import { MidTitle, ScoreLabel, StyledParagraph } from "./Titles";

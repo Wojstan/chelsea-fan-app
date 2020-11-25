@@ -49,13 +49,12 @@ export const ScoreLabel = styled.h3`
 `;
 
 export const StyledParagraph = styled.p`
-  color: ${(props) => (props.dark ? "#242424" : "#898989")};
-  color: ${(props) => (props.white ? "#efefef" : "#898989")};
+  color: ${(props) => props.color};
   font-family: "Poppins", sans-serif;
   font-size: 1.1rem;
   font-weight: 300;
   text-align: ${(props) => (props.center ? "center" : "start")};
-  margin-bottom: ${(props) => (props.mb ? "2vh" : "0vh")};
+  margin-bottom: ${(props) => (props.mb ? "1.5vh" : "0vh")};
 `;
 
 

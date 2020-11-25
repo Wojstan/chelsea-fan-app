@@ -18,7 +18,7 @@ export const ResultRow = styled(Flex)`
   margin-top: 3vh;
 `;
 
-export const GoalsList = styled.ul`
+export const GoalsList = styled.ol`
   list-style: none;
   li {
     margin-bottom: 1vh;
@@ -40,14 +40,14 @@ export const TeamBlock = styled(CentreBlock)`
   }
 `;
 
-export const TeamList = styled.ul`
+export const TeamList = styled.ol`
   overflow-y: auto;
   height: 68.8vh;
   list-style: none;
   padding: 2vh 4vh 0vh 4vh;
 `;
 
-export const PositionList = styled.ul`
+export const PositionList = styled.ol`
   list-style: none;
   li:last-child {
     margin-bottom: 4vh;

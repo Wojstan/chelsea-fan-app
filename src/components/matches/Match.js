@@ -37,7 +37,7 @@ export default function Match({
       </Flex>
       <MatchLink to={`/matches/${id}`}>
         <MatchInfo vertical="center" horizontal="center">
-          <StyledCompetition>{competition}</StyledCompetition>
+          <StyledCompetition color="#898989">{competition}</StyledCompetition>
           <MainScore vertical="space-between" horizontal="center">
             <TeamName right color="#242424">
               {home}

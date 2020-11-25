@@ -101,3 +101,10 @@ export const TimeNumber = styled(BigTitle)`
 export const SecondNumber = styled(TimeNumber)`
   min-width: 15vh;
 `;
+
+export const CompetitionLogo = styled(Flex)`
+  height: 100px;
+  img{
+    height: 100%;
+  }
+`

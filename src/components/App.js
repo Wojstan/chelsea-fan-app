@@ -5,7 +5,7 @@ import "../styles/main.css";
 
 import Home from "./Home";
 import Matches from "./Matches";
-import Players from "./Players";
+import Tickets from "./Tickets";
 import store from "../store";
 import MatchCentre from "./MatchCentre";
 
@@ -17,7 +17,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/matches" component={Matches} />
           <Route exact path="/matches/:id" component={MatchCentre} />
-          <Route exact path="/players" component={Players} />
+          <Route exact path="/tickets" component={Tickets} />
         </Switch>
       </Router>
     </Provider>
