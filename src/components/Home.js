@@ -22,26 +22,17 @@ import clLogo from "../static/img/CLLogo.png";
 export const Home = () => {
   const [matches, setMatches] = useState({
     last: {
-      homeTeamID: 0,
-      awayTeamID: 0,
-      home: "",
-      guest: "",
-      homeScore: 0,
-      awayScore: 0,
-      logoHome: "",
-      logoAway: "",
-      competition: "",
-      date: "",
+      homeTeam: { id: 66, name: "Chelsea FC" },
+      awayTeam: { id: 66, name: "" },
+      score: { fullTime: { homeTeam: 0, awayTeam: 0 } },
+      competition: { name: "" },
+      utcDate: "",
     },
     next: {
-      homeTeamID: 0,
-      awayTeamID: 0,
-      home: "",
-      guest: "",
-      logoHome: "",
-      logoAway: "",
-      competition: "",
-      date: new Date(),
+      homeTeam: { id: 66, name: "Chelsea FC" },
+      awayTeam: { id: 66, name: "" },
+      competition: { name: "" },
+      utcDate: "",
     },
   });
 
@@ -61,30 +52,9 @@ export const Home = () => {
           );
 
           setMatches({
-            last: {
-              homeTeamID: finished[finished.length - 1].homeTeam.id,
-              awayTeamID: finished[finished.length - 1].awayTeam.id,
-              home: finished[finished.length - 1].homeTeam.name,
-              guest: finished[finished.length - 1].awayTeam.name,
-              homeScore: finished[finished.length - 1].score.fullTime.homeTeam,
-              awayScore: finished[finished.length - 1].score.fullTime.awayTeam,
-              logoHome: `https://crests.football-data.org/${finished[finished.length - 1].homeTeam.id
-                }.svg`,
-              logoAway: `https://crests.football-data.org/${finished[finished.length - 1].awayTeam.id
-                }.svg`,
-              competition: finished[finished.length - 1].competition.name,
-              date: finished[finished.length - 1].utcDate,
-            },
-            next: {
-              homeTeamID: scheudled[0].homeTeam.id,
-              awayTeamID: scheudled[0].awayTeam.id,
-              home: scheudled[0].homeTeam.name,
-              guest: scheudled[0].awayTeam.name,
-              logoHome: `https://crests.football-data.org/${scheudled[0].homeTeam.id}.svg`,
-              logoAway: `https://crests.football-data.org/${scheudled[0].awayTeam.id}.svg`,
-              competition: scheudled[0].competition.name,
-              date: scheudled[0].utcDate,
-            },
+            last: finished[finished.length - 1],
+
+            next: scheudled[0],
           });
         });
     };
@@ -137,27 +107,33 @@ export const Home = () => {
             <div className="col-xl-6">
               <MatchBlock
                 title="LAST"
-                home={matches.last.home}
-                guest={matches.last.guest}
-                logoHome={matches.last.logoHome}
-                logoGuest={matches.last.logoAway}
-                type={plLogo}
-                time={new Date(matches.last.date)}
-                scoreHome={matches.last.homeScore}
-                scoreGuest={matches.last.awayScore}
+                home={matches.last.homeTeam.name}
+                guest={matches.last.awayTeam.name}
+                logoHome={`https://crests.football-data.org/${matches.last.homeTeam.id}.svg`}
+                logoGuest={`https://crests.football-data.org/${matches.last.awayTeam.id}.svg`}
+                type={
+                  matches.last.competition.name === "Premier League"
+                    ? plLogo
+                    : clLogo
+                }
+                time={new Date(matches.last.utcDate)}
+                scoreHome={matches.last.score.fullTime.homeTeam}
+                scoreGuest={matches.last.score.fullTime.awayTeam}
               />
             </div>
             <div className="col-xl-6">
               <MatchBlock
                 title="NEXT"
-                home={matches.next.home}
-                guest={matches.next.guest}
-                logoHome={matches.next.logoHome}
-                logoGuest={matches.next.logoAway}
-                type={clLogo}
-                time={new Date(matches.next.date)}
-                scoreHome=""
-                scoreGuest=""
+                home={matches.next.homeTeam.name}
+                guest={matches.next.awayTeam.name}
+                logoHome={`https://crests.football-data.org/${matches.next.homeTeam.id}.svg`}
+                logoGuest={`https://crests.football-data.org/${matches.next.awayTeam.id}.svg`}
+                type={
+                  matches.next.competition.name === "Premier League"
+                    ? plLogo
+                    : clLogo
+                }
+                time={new Date(matches.next.utcDate)}
               />
             </div>
           </div>
@@ -170,9 +146,9 @@ export const Home = () => {
 
       <StyledCounter>
         <Counter
-          home={matches.next.home}
-          away={matches.next.guest}
-          nextMatch={new Date(matches.next.date)}
+          home={matches.next.homeTeam.name}
+          away={matches.next.awayTeam.name}
+          nextMatch={new Date(matches.next.utcDate)}
         />
       </StyledCounter>
     </main>
